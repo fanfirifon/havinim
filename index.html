@@ -30,14 +30,12 @@
         <section class="video-section">
             <div class="video-container">
                 <div id="video-loading" style="color: white; position: absolute; z-index: 0;">Yükleniyor...</div>
-                <video id="romantic-video" loop muted playsinline autoplay preload="auto"
-                    poster="https://cdn.pixabay.com/photo/2017/12/10/17/40/snow-globe-3010300_1280.jpg">
-                    <source src="https://cdn.pixabay.com/video/2022/12/26/144274-784384547_large.mp4" type="video/mp4">
-                    <source
-                        src="https://assets.mixkit.co/videos/preview/mixkit-close-up-of-a-snow-globe-with-a-house-34981-large.mp4"
-                        type="video/mp4">
-                    Görüntü yüklenemedi.
-                </video>
+                <!-- YouTube Iframe - Daha güvenilir ve her tarayıcıda çalışır -->
+                <iframe id="romantic-video-iframe"
+                    src="https://www.youtube.com/embed/n_D1Zq0-7r0?autoplay=1&mute=1&loop=1&playlist=n_D1Zq0-7r0&controls=0&showinfo=0&rel=0&iv_load_policy=3&modestbranding=1&disablekb=1"
+                    frameborder="0" allow="autoplay; encrypted-media" allowfullscreen
+                    style="width: 100%; height: 100%; pointer-events: none; border-radius: 15px;">
+                </iframe>
                 <div class="video-overlay"></div>
             </div>
         </section>
