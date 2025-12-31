@@ -119,7 +119,8 @@ video {
     object-fit: cover;
     display: block;
     position: relative;
-    z-index: 1;
+    z-index: 5;
+    background: #000;
 }
 
 .video-overlay {
