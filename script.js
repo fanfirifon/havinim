@@ -13,12 +13,12 @@ startBtn.addEventListener('click', () => {
     setTimeout(() => {
         mainContent.classList.add('visible');
     }, 100);
-    
+
     // Video ve Müzik Başlat
     video.play().catch(e => console.log("Video başlatılamadı:", e));
     music.volume = 0.5;
     music.play().catch(e => console.log("Müzik başlatılamadı:", e));
-    
+
     startHeartRain();
 });
 
@@ -27,7 +27,7 @@ const noBtn = document.getElementById('love-btn-no');
 noBtn.addEventListener('mouseover', () => {
     const x = Math.random() * (window.innerWidth - noBtn.offsetWidth);
     const y = Math.random() * (window.innerHeight - noBtn.offsetHeight);
-    
+
     noBtn.style.position = 'fixed';
     noBtn.style.left = `${x}px`;
     noBtn.style.top = `${y}px`;
@@ -37,7 +37,7 @@ noBtn.addEventListener('mouseover', () => {
 const yesBtn = document.getElementById('love-btn-yes');
 yesBtn.addEventListener('click', () => {
     alert('Biliyordum! Seni çok seviyorum Havin! ❤️❤️❤️');
-    for(let i=0; i<50; i++) {
+    for (let i = 0; i < 50; i++) {
         createHeartAt(window.innerWidth / 2, window.innerHeight / 2);
     }
 });
@@ -57,9 +57,9 @@ class Heart {
     constructor(x, y, size, speedX, speedY) {
         this.x = x || Math.random() * canvas.width;
         this.y = y || -50;
-        this.size = size || Math.random() * 20 + 10;
+        this.size = size || Math.random() * 15 + 5;
         this.speedX = speedX || Math.random() * 2 - 1;
-        this.speedY = speedY || Math.random() * 3 + 1;
+        this.speedY = speedY || Math.random() * 2 + 1;
         this.opacity = Math.random() * 0.5 + 0.5;
         this.color = `rgba(255, ${Math.random() * 100 + 100}, ${Math.random() * 100 + 100}, ${this.opacity})`;
     }
@@ -78,44 +78,63 @@ class Heart {
         ctx.beginPath();
         const topCurveHeight = this.size * 0.3;
         ctx.moveTo(this.x, this.y + topCurveHeight);
-        // Kalp çizimi
-        ctx.bezierCurveTo(
-            this.x, this.y, 
-            this.x - this.size / 2, this.y, 
-            this.x - this.size / 2, this.y + topCurveHeight
-        );
-        ctx.bezierCurveTo(
-            this.x - this.size / 2, this.y + (this.size + topCurveHeight) / 2, 
-            this.x, this.y + (this.size + topCurveHeight) / 2, 
-            this.x, this.y + this.size
-        );
-        ctx.bezierCurveTo(
-            this.x, this.y + (this.size + topCurveHeight) / 2, 
-            this.x + this.size / 2, this.y + (this.size + topCurveHeight) / 2, 
-            this.x + this.size / 2, this.y + topCurveHeight
-        );
-        ctx.bezierCurveTo(
-            this.x + this.size / 2, this.y, 
-            this.x, this.y, 
-            this.x, this.y + topCurveHeight
-        );
+        ctx.bezierCurveTo(this.x, this.y, this.x - this.size / 2, this.y, this.x - this.size / 2, this.y + topCurveHeight);
+        ctx.bezierCurveTo(this.x - this.size / 2, this.y + (this.size + topCurveHeight) / 2, this.x, this.y + (this.size + topCurveHeight) / 2, this.x, this.y + this.size);
+        ctx.bezierCurveTo(this.x, this.y + (this.size + topCurveHeight) / 2, this.x + this.size / 2, this.y + (this.size + topCurveHeight) / 2, this.x + this.size / 2, this.y + topCurveHeight);
+        ctx.bezierCurveTo(this.x + this.size / 2, this.y, this.x, this.y, this.x, this.y + topCurveHeight);
         ctx.fill();
     }
 }
 
+class Snow {
+    constructor() {
+        this.reset();
+    }
+
+    reset() {
+        this.x = Math.random() * canvas.width;
+        this.y = Math.random() * canvas.height;
+        this.size = Math.random() * 3 + 1;
+        this.speedX = Math.random() * 1 - 0.5;
+        this.speedY = Math.random() * 1 + 0.5;
+        this.opacity = Math.random() * 0.5 + 0.3;
+    }
+
+    update() {
+        this.x += this.speedX;
+        this.y += this.speedY;
+        if (this.y > canvas.height) {
+            this.y = -10;
+            this.x = Math.random() * canvas.width;
+        }
+    }
+
+    draw() {
+        ctx.fillStyle = `rgba(255, 255, 255, ${this.opacity})`;
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.fill();
+    }
+}
+
+let particles = [];
+
 function startHeartRain() {
-    for (let i = 0; i < 50; i++) {
-        hearts.push(new Heart());
+    for (let i = 0; i < 30; i++) {
+        particles.push(new Heart());
+    }
+    for (let i = 0; i < 100; i++) {
+        particles.push(new Snow());
     }
     animate();
 }
 
 function createHeartAt(x, y) {
-    for(let i=0; i<5; i++) {
-        hearts.push(new Heart(
-            x, y, 
-            Math.random() * 30 + 15, 
-            Math.random() * 6 - 3, 
+    for (let i = 0; i < 10; i++) {
+        particles.push(new Heart(
+            x, y,
+            Math.random() * 20 + 10,
+            Math.random() * 6 - 3,
             Math.random() * 6 - 3
         ));
     }
@@ -123,13 +142,12 @@ function createHeartAt(x, y) {
 
 function animate() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    hearts.forEach((heart, index) => {
-        heart.update();
-        heart.draw();
-        
-        // Çok fazla kalp birikmesini önlemek için bir sınır koyabiliriz
-        if (hearts.length > 200) {
-            hearts.shift();
+    particles.forEach((p, index) => {
+        p.update();
+        p.draw();
+
+        if (particles.length > 300) {
+            particles.shift();
         }
     });
     requestAnimationFrame(animate);
