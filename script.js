@@ -15,7 +15,14 @@ startBtn.addEventListener('click', () => {
     }, 100);
 
     // Video ve Müzik Başlat
-    video.play().catch(e => console.log("Video başlatılamadı:", e));
+    video.muted = true; // Autoplay garantisi için
+    video.load();
+    video.play().then(() => {
+        console.log("Video başarıyla başladı.");
+    }).catch(err => {
+        console.error("Video hatası:", err);
+    });
+
     music.volume = 0.5;
     music.play().catch(e => console.log("Müzik başlatılamadı:", e));
 
@@ -43,7 +50,6 @@ yesBtn.addEventListener('click', () => {
 });
 
 // Kalp Yağmuru Efekti
-let hearts = [];
 
 function resizeCanvas() {
     canvas.width = window.innerWidth;
