@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="tr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Our Love Story</title>
+    <title>Havinim - Aşkın Dili</title>
     <style>
         * {
             margin: 0;
@@ -12,671 +12,440 @@
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            font-family: 'Georgia', serif;
+            line-height: 1.6;
             color: #333;
+            background: linear-gradient(135deg, #fff5f7 0%, #ffe0e6 100%);
             min-height: 100vh;
-            overflow-x: hidden;
         }
 
-        /* Floating Hearts Animation */
-        @keyframes float {
-            0%, 100% {
-                transform: translateY(0px) translateX(0px);
-                opacity: 1;
-            }
-            50% {
-                transform: translateY(-50px) translateX(20px);
-                opacity: 0.8;
-            }
-        }
-
-        @keyframes fadeOut {
-            0% {
-                opacity: 1;
-            }
-            100% {
-                opacity: 0;
-            }
-        }
-
-        .heart {
-            position: fixed;
-            pointer-events: none;
-            font-size: 2rem;
-            animation: float 3s ease-in-out infinite, fadeOut 4s ease-out forwards;
-            z-index: 1;
-        }
-
-        /* Header */
         header {
-            background: rgba(255, 255, 255, 0.95);
-            padding: 20px 0;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            background: linear-gradient(135deg, #c41e3a 0%, #8b1538 100%);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        header h1 {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        header p {
+            font-size: 1.2rem;
+            font-style: italic;
+            opacity: 0.95;
+        }
+
+        nav {
+            background-color: #a31830;
+            padding: 1rem 0;
             position: sticky;
             top: 0;
             z-index: 100;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
 
-        .header-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
+        nav ul {
+            list-style: none;
             display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 28px;
-            font-weight: bold;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 2rem;
         }
 
         nav a {
-            margin-left: 30px;
+            color: white;
             text-decoration: none;
-            color: #333;
-            font-weight: 500;
-            transition: color 0.3s ease;
+            font-size: 1.1rem;
+            transition: opacity 0.3s ease;
+            padding: 0.5rem 1rem;
         }
 
         nav a:hover {
-            color: #667eea;
+            opacity: 0.8;
+            text-decoration: underline;
         }
 
-        /* Hero Section */
-        .hero {
+        .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 80px 20px;
-            text-align: center;
-            color: white;
+            padding: 2rem;
         }
 
-        .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 20px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-            animation: slideDown 0.8s ease-out;
+        section {
+            background: white;
+            margin: 2rem 0;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        section h2 {
+            color: #c41e3a;
+            font-size: 2.2rem;
+            margin-bottom: 1.5rem;
+            border-bottom: 3px solid #ff69b4;
+            padding-bottom: 1rem;
+        }
+
+        section h3 {
+            color: #8b1538;
+            font-size: 1.5rem;
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, rgba(196,30,58,0.8) 0%, rgba(139,21,56,0.8) 100%), 
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><defs><filter id="heart"><feGaussianBlur in="SourceGraphic" stdDeviation="3"/></filter></defs><circle cx="200" cy="150" r="30" fill="%23ff69b4" opacity="0.3" filter="url(%23heart)"/><circle cx="1000" cy="400" r="40" fill="%23ff69b4" opacity="0.2" filter="url(%23heart)"/><circle cx="600" cy="100" r="25" fill="%23ff69b4" opacity="0.25" filter="url(%23heart)"/></svg>');
+            color: white;
+            padding: 4rem 2rem;
+            border-radius: 10px;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .hero h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: white;
+            border: none;
         }
 
         .hero p {
             font-size: 1.3rem;
-            margin-bottom: 40px;
-            opacity: 0.9;
-            animation: slideUp 0.8s ease-out 0.2s backwards;
+            font-style: italic;
+            margin-bottom: 2rem;
         }
 
-        @keyframes slideDown {
-            from {
-                transform: translateY(-50px);
-                opacity: 0;
-            }
-            to {
-                transform: translateY(0);
-                opacity: 1;
-            }
-        }
-
-        @keyframes slideUp {
-            from {
-                transform: translateY(50px);
-                opacity: 0;
-            }
-            to {
-                transform: translateY(0);
-                opacity: 1;
-            }
-        }
-
-        .cta-button {
+        .btn {
             display: inline-block;
-            padding: 15px 40px;
-            background: white;
-            color: #667eea;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: bold;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-        }
-
-        .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
-        }
-
-        /* Gallery Section */
-        .gallery {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 80px 20px;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 60px;
+            padding: 0.8rem 1.5rem;
+            background-color: #ff69b4;
             color: white;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+            text-decoration: none;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
         }
 
-        .photo-grid {
+        .btn:hover {
+            background-color: #ff1493;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        .quote-box {
+            background: #fff5f7;
+            padding: 1.5rem;
+            border-left: 4px solid #ff69b4;
+            margin: 1.5rem 0;
+            font-style: italic;
+            font-size: 1.1rem;
+            color: #666;
+        }
+
+        .grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-bottom: 80px;
+            gap: 2rem;
+            margin: 2rem 0;
         }
 
-        .photo-card {
-            background: white;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            animation: fadeInUp 0.6s ease-out backwards;
-        }
-
-        .photo-card:nth-child(1) {
-            animation-delay: 0.1s;
-        }
-
-        .photo-card:nth-child(2) {
-            animation-delay: 0.2s;
-        }
-
-        .photo-card:nth-child(3) {
-            animation-delay: 0.3s;
-        }
-
-        .photo-card:nth-child(4) {
-            animation-delay: 0.4s;
-        }
-
-        .photo-card:nth-child(5) {
-            animation-delay: 0.5s;
-        }
-
-        .photo-card:nth-child(6) {
-            animation-delay: 0.6s;
-        }
-
-        @keyframes fadeInUp {
-            from {
-                transform: translateY(30px);
-                opacity: 0;
-            }
-            to {
-                transform: translateY(0);
-                opacity: 1;
-            }
-        }
-
-        .photo-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 12px 30px rgba(102, 126, 234, 0.3);
-        }
-
-        .photo-placeholder {
-            width: 100%;
-            height: 250px;
-            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 3rem;
-            color: white;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .photo-placeholder::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: linear-gradient(
-                45deg,
-                transparent 30%,
-                rgba(255, 255, 255, 0.1) 50%,
-                transparent 70%
-            );
-            animation: shimmer 3s infinite;
-        }
-
-        @keyframes shimmer {
-            0% {
-                transform: translate(-100%, -100%) rotate(45deg);
-            }
-            100% {
-                transform: translate(100%, 100%) rotate(45deg);
-            }
-        }
-
-        .photo-description {
-            padding: 20px;
-            text-align: center;
-        }
-
-        .photo-description h3 {
-            font-size: 1.3rem;
-            color: #667eea;
-            margin-bottom: 10px;
-        }
-
-        .photo-description p {
-            color: #666;
-            font-size: 0.95rem;
-            line-height: 1.6;
-        }
-
-        /* Timeline Section */
-        .timeline {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 80px 20px;
-        }
-
-        .timeline-item {
-            display: grid;
-            grid-template-columns: 1fr 100px 1fr;
-            gap: 30px;
-            margin-bottom: 50px;
-            align-items: center;
-            animation: fadeInUp 0.6s ease-out backwards;
-        }
-
-        .timeline-item:nth-child(odd) {
-            grid-template-columns: 1fr 100px 1fr;
-        }
-
-        .timeline-item:nth-child(even) {
-            grid-template-columns: 1fr 100px 1fr;
-            direction: rtl;
-        }
-
-        .timeline-item:nth-child(1) {
-            animation-delay: 0.1s;
-        }
-
-        .timeline-item:nth-child(2) {
-            animation-delay: 0.2s;
-        }
-
-        .timeline-item:nth-child(3) {
-            animation-delay: 0.3s;
-        }
-
-        .timeline-item:nth-child(4) {
-            animation-delay: 0.4s;
-        }
-
-        .timeline-content {
-            background: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            direction: ltr;
-        }
-
-        .timeline-content h3 {
-            color: #667eea;
-            margin-bottom: 10px;
-        }
-
-        .timeline-content p {
-            color: #666;
-            line-height: 1.6;
-        }
-
-        .timeline-marker {
-            width: 100px;
-            height: 100px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-weight: bold;
-            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
-        }
-
-        /* Messages Section */
-        .messages {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 80px 20px;
-        }
-
-        .message-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-        }
-
-        .message-card {
-            background: white;
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            border-left: 5px solid #f5576c;
+        .card {
+            background: #fff5f7;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border: 2px solid #ffb6d9;
             transition: transform 0.3s ease;
-            animation: fadeInUp 0.6s ease-out backwards;
         }
 
-        .message-card:nth-child(1) {
-            animation-delay: 0.1s;
-        }
-
-        .message-card:nth-child(2) {
-            animation-delay: 0.2s;
-        }
-
-        .message-card:nth-child(3) {
-            animation-delay: 0.3s;
-        }
-
-        .message-card:hover {
+        .card:hover {
             transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(255, 105, 180, 0.3);
         }
 
-        .message-card p {
-            color: #666;
-            font-size: 1rem;
-            line-height: 1.8;
-            font-style: italic;
-            margin-bottom: 15px;
+        .card h4 {
+            color: #c41e3a;
+            margin-bottom: 0.5rem;
         }
 
-        .message-author {
-            color: #667eea;
-            font-weight: bold;
-            text-align: right;
-        }
-
-        /* Footer */
         footer {
-            background: rgba(0, 0, 0, 0.8);
+            background: linear-gradient(135deg, #c41e3a 0%, #8b1538 100%);
             color: white;
             text-align: center;
-            padding: 40px 20px;
-            margin-top: 80px;
+            padding: 2rem 0;
+            margin-top: 3rem;
         }
 
         footer p {
-            margin-bottom: 10px;
+            margin: 0.5rem 0;
         }
 
-        .footer-hearts {
-            font-size: 1.5rem;
-            margin: 20px 0;
-            letter-spacing: 10px;
+        .testimonial {
+            background: #fff5f7;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            border-radius: 8px;
+            border-left: 4px solid #ff69b4;
         }
 
-        /* Mobile Responsive */
+        .testimonial-author {
+            color: #c41e3a;
+            font-weight: bold;
+            margin-top: 0.5rem;
+        }
+
+        .heart {
+            color: #ff69b4;
+            display: inline-block;
+            margin: 0 0.2rem;
+        }
+
+        .feature-list {
+            list-style: none;
+            margin: 1rem 0;
+        }
+
+        .feature-list li {
+            padding: 0.8rem 0;
+            padding-left: 2rem;
+            position: relative;
+            color: #555;
+        }
+
+        .feature-list li:before {
+            content: "♥";
+            position: absolute;
+            left: 0;
+            color: #ff69b4;
+            font-size: 1.3rem;
+        }
+
         @media (max-width: 768px) {
-            .hero h1 {
+            header h1 {
                 font-size: 2rem;
             }
 
-            .hero p {
-                font-size: 1rem;
+            nav ul {
+                gap: 1rem;
             }
 
-            .section-title {
-                font-size: 1.8rem;
-                margin-bottom: 40px;
+            section {
+                padding: 1.5rem;
             }
 
-            .photo-grid {
-                grid-template-columns: 1fr;
-                gap: 20px;
-            }
-
-            .timeline-item {
-                grid-template-columns: 1fr !important;
-                direction: ltr !important;
-                margin-bottom: 40px;
-            }
-
-            .timeline-item:nth-child(even) {
-                direction: ltr;
-            }
-
-            .timeline-marker {
-                width: 80px;
-                height: 80px;
-                font-size: 0.9rem;
-            }
-
-            .timeline-content {
-                direction: ltr;
-            }
-
-            nav {
-                display: none;
-            }
-
-            .header-content {
-                flex-direction: column;
-            }
-
-            .logo {
-                margin-bottom: 15px;
-            }
-
-            .message-grid {
-                grid-template-columns: 1fr;
-            }
-
-            header {
-                padding: 15px 0;
-            }
-
-            .hero {
-                padding: 40px 20px;
-            }
-
-            .gallery {
-                padding: 40px 20px;
-            }
-
-            .timeline {
-                padding: 40px 20px;
-            }
-
-            .messages {
-                padding: 40px 20px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .hero h1 {
-                font-size: 1.5rem;
-            }
-
-            .cta-button {
-                padding: 12px 30px;
-                font-size: 0.9rem;
-            }
-
-            .section-title {
-                font-size: 1.5rem;
-            }
-
-            .photo-placeholder {
-                height: 200px;
+            .container {
+                padding: 1rem;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Floating Hearts -->
-    <script>
-        function createHeart() {
-            const heart = document.createElement('div');
-            heart.className = 'heart';
-            heart.innerHTML = '❤️';
-            heart.style.left = Math.random() * window.innerWidth + 'px';
-            heart.style.top = Math.random() * window.innerHeight + 'px';
-            document.body.appendChild(heart);
-
-            setTimeout(() => {
-                heart.remove();
-            }, 4000);
-        }
-
-        setInterval(createHeart, 800);
-    </script>
-
-    <!-- Header -->
     <header>
-        <div class="header-content">
-            <div class="logo">💕 Our Story</div>
-            <nav>
-                <a href="#gallery">Gallery</a>
-                <a href="#timeline">Timeline</a>
-                <a href="#messages">Messages</a>
-            </nav>
-        </div>
+        <h1>💕 Havinim 💕</h1>
+        <p>Aşkın Dili - Gönüllerinizi Birleştiren Platform</p>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <h1>Forever Starts Today</h1>
-        <p>A celebration of love, memories, and beautiful moments we share</p>
-        <a href="#gallery" class="cta-button">Explore Our Story</a>
-    </section>
+    <nav>
+        <ul>
+            <li><a href="#anasayfa">Anasayfa</a></li>
+            <li><a href="#hizmetler">Hizmetler</a></li>
+            <li><a href="#hikayeler">Hikayeler</a></li>
+            <li><a href="#testimonial">Yorumlar</a></li>
+            <li><a href="#iletisim">İletişim</a></li>
+        </ul>
+    </nav>
 
-    <!-- Gallery Section -->
-    <section class="gallery" id="gallery">
-        <h2 class="section-title">Our Memories</h2>
-        <div class="photo-grid">
-            <div class="photo-card">
-                <div class="photo-placeholder">📸</div>
-                <div class="photo-description">
-                    <h3>First Meeting</h3>
-                    <p>The day everything changed. A moment that brought us together and changed our lives forever.</p>
+    <div class="container">
+        <section class="hero" id="anasayfa">
+            <h2>Aşkın Gücünü Keşfet</h2>
+            <p>İki gönlü birleştiren, sonsuz mutluluğun kapısını açan eşsiz bir deneyim</p>
+            <a href="#hizmetler" class="btn">Hemen Başla</a>
+        </section>
+
+        <section id="hizmetler">
+            <h2>Hizmetlerimiz</h2>
+            <p>Havinim, aşkınızı kutlamanız ve güçlendirmeniz için özel tasarlanmış hizmetler sunmaktadır.</p>
+            
+            <div class="grid">
+                <div class="card">
+                    <h4>💌 Romantik Mesajlar</h4>
+                    <p>Özel anlarınızı kalp dokunuşu ile kutlayın. Her mesaj, aşkınızın derinliğini yansıtır. Türkçe ve İngilizce aşk sözleriyle dolu, hazır şablonlardan seçin veya kendi mesajınızı yazın.</p>
+                </div>
+
+                <div class="card">
+                    <h4>🌹 Anı Koleksiyonu</h4>
+                    <p>Birlikte yaşadığınız tüm güzel anıları saklayın. Fotoğraflar, videolar ve yazılarla dolu bir dijital albüm oluşturun. Her an, adeta bir hikaye ve bu hikayeler ebedi olacak.</p>
+                </div>
+
+                <div class="card">
+                    <h4>💝 Hediye Fikirleri</h4>
+                    <p>Sevdiğiniz kişiye mükemmel hediye bulmakta zorlanıyor musunuz? Biz size rehberlik edeceğiz. Romantik, özgün ve etkili hediye seçenekleri ile ilgili önerilerimiz var.</p>
+                </div>
+
+                <div class="card">
+                    <h4>📅 Gün Takvimi</h4>
+                    <p>Önemli günleri asla unutmayın. Yıldönümü, ilk buluşma, evlenme günü... Tüm özel günleri takip edin ve önceden hazırlanın. Otomatik hatırlatmalar sayesinde hiç bir şey kaçmayacak.</p>
+                </div>
+
+                <div class="card">
+                    <h4>🎵 Aşk Çalışması</h4>
+                    <p>Müzik, aşkın evrensel dilidir. Size özel hazırlanmış romantik şarkı listelerimiz, anlarınıza renk katacak. Her şarkı, bir duygu, her nota bir kalp atışıdır.</p>
+                </div>
+
+                <div class="card">
+                    <h4>💬 Sohbet Rehberi</h4>
+                    <p>Konuşmalar ne zaman bitiyor mu? Derin ve anlamlı sohbetler için özel konular, sorular ve aktiviteler sunuyoruz. Birbirinizi daha iyi tanıyın ve bağlantınızı güçlendirin.</p>
                 </div>
             </div>
 
-            <div class="photo-card">
-                <div class="photo-placeholder">🌅</div>
-                <div class="photo-description">
-                    <h3>Sunrise Together</h3>
-                    <p>Watching the sunrise with you is my favorite way to start any day.</p>
+            <div class="quote-box">
+                "Aşk, dünyanın en güzel duygusudur. İt, hayatı renklendirir, sorulara cevap bulduğu, umut ilişkisini sağlar ve kalpleri birleştirir."
+            </div>
+        </section>
+
+        <section id="hikayeler">
+            <h2>Aşk Hikayelerimiz</h2>
+            <p>Platformumuzun kullanıcıları tarafından yaşanan ve bizimle paylaşılan gerçek aşk hikayeleri:</p>
+
+            <h3>Ali ve Ayşe'nin Hikayesi</h3>
+            <p>
+                Dört sene öncesinde sosyal medyada tanışan Ali ve Ayşe, Havinim platformunu kullanarak aşklarını daha derinleştirdiler. 
+                Havinim'deki romantik mesaj önerileri, Ayşe'nin favorisi olan aşk şiirleri koleksiyonu ve anı takvimi, onların 
+                ilişkisini sağlamlaştırmaya yardımcı oldu. Bugün mutlu bir şekilde evli yaşıyorlar ve çocukları var.
+            </p>
+
+            <div class="testimonial">
+                <strong>"Havinim olmasa belki bu kadar iyi anlaşamazdık"</strong> - Ali
+            </div>
+
+            <h3>Zeynep ve Mert'in Hikayesi</h3>
+            <p>
+                Üniversitede sınıf arkadaşı olarak başlayan arkadaşlıkları, birkaç yıl sonra aşka dönüştü. Havinim'in 'Gün Takvimi' 
+                özelliği sayesinde hiç bir önemli günü unutmadılar. Bugün evlenmiş ve ilişkilerini hep canlı tutmaya çalışıyorlar.
+            </p>
+
+            <div class="testimonial">
+                <strong>"Havinim'i kullandıktan sonra, aşkımız daha özel hale geldi"</strong> - Zeynep
+            </div>
+
+            <h3>Fatih ve Gülşah'ın Hikayesi</h3>
+            <p>
+                Evli olarak 20 yıl geçirdikten sonra, aşklarını yeniden canlandırmak istediler. Havinim'in romantik mesaj 
+                önerileri ve sohbet rehberi, onların yeni bir başlangıç yapmasına yardımcı oldu. Hala birbirlerine sevgi gösteriyorlar 
+                ve mutlu bir şekilde yaşıyor.
+            </p>
+
+            <div class="testimonial">
+                <strong>"20 yıl sonra yine genç sevgililer gibi hissettik"</strong> - Gülşah
+            </div>
+        </section>
+
+        <section id="testimonial">
+            <h2>Kullanıcı Yorumları</h2>
+            <p>Havinim'i kullanan gerçek insanlardan gelen gerçek yorumlar:</p>
+
+            <div class="testimonial">
+                <p>"Çok güzel ve kullanıcı dostu bir platform. Sevdiğim kişiye özel mesajlar gönderirken çok mutlu oldum."</p>
+                <div class="testimonial-author">- Seda K., İstanbul</div>
+            </div>
+
+            <div class="testimonial">
+                <p>"Aşk hikayelerimiz için mükemmel bir dijital albüm oluşturduk. Anılarımız sonsuza kadar güvenli kalacak."</p>
+                <div class="testimonial-author">- Emre D., Ankara</div>
+            </div>
+
+            <div class="testimonial">
+                <p>"Romantik mesaj önerileri sayesinde sevdiğim kişiye ne yazmam gerektiğini anladım. Şimdi daha iyi anlaşıyoruz."</p>
+                <div class="testimonial-author">- Neşe T., İzmir</div>
+            </div>
+
+            <div class="testimonial">
+                <p>"Önemli günleri asla unutmuyorum artık. Havinim'in otomatik hatırlatmaları çok yardımcı oluyor."</p>
+                <div class="testimonial-author">- Can B., Bursa</div>
+            </div>
+
+            <div class="testimonial">
+                <p>"Sohbet rehberi sayesinde sevdiğim kişi ile çok daha derin konuşmalar yapabiliyorum. Bağlantımız güçlendii."</p>
+                <div class="testimonial-author">- Duygu Y., Gaziantep</div>
+            </div>
+
+            <div class="testimonial">
+                <p>"Müzik listelerimiz birlikte harika anlar yaşamamızda büyük rol oynuyor. Her şarkı bir hatırası..."</p>
+                <div class="testimonial-author">- Uğur V., Antalya</div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Neden Havinim'i Seçmelisiniz?</h2>
+            <ul class="feature-list">
+                <li><strong>Güvenlik:</strong> Tüm verileriniz şifrelenmiş ve güvenli sunucularda saklanır</li>
+                <li><strong>Gizlilik:</strong> Sadece siz ve sevdiğiniz kişi paylaşılan içeriği görebilir</li>
+                <li><strong>Kullanıcı Dostu:</strong> Basit, sezgisel ve öğrenmesi kolay arayüz</li>
+                <li><strong>Mobil Uyumlu:</strong> Telefonunuzdan, tabletinizden veya bilgisayarınızdan erişin</li>
+                <li><strong>Sürekli Güncelleme:</strong> Düzenli olarak yeni özellikler ve iyileştirmeler ekliyoruz</li>
+                <li><strong>Müşteri Desteği:</strong> 24/7 çevrimiçi destek ekibi size yardımcı olmaya hazır</li>
+                <li><strong>Uygun Fiyat:</strong> Hafif ve esnek fiyatlandırma seçenekleri</li>
+                <li><strong>Topluluk:</strong> Binlerce happy çiftleri aşk hikayesine katılın</li>
+            </ul>
+        </section>
+
+        <section id="iletisim">
+            <h2>İletişim</h2>
+            <p>Sorularınız mı var? Bize ulaşın ve sizi en kısa sürede cevaplandıracağız.</p>
+
+            <h3>İletişim Bilgileri</h3>
+            <ul class="feature-list">
+                <li><strong>E-mail:</strong> destek@havinim.com</li>
+                <li><strong>Telefon:</strong> +90 (212) 555-0123</li>
+                <li><strong>Adres:</strong> Beşiktaş, İstanbul, Türkiye</li>
+                <li><strong>Sosyal Medya:</strong> @havinim (Instagram, Twitter, Facebook)</li>
+            </ul>
+
+            <h3>İletişim Formu</h3>
+            <form style="max-width: 600px; margin: 1.5rem 0;">
+                <div style="margin-bottom: 1rem;">
+                    <label for="ad" style="display: block; margin-bottom: 0.5rem; color: #333;">Adınız:</label>
+                    <input type="text" id="ad" name="ad" style="width: 100%; padding: 0.5rem; border: 1px solid #ddd; border-radius: 4px;" required>
                 </div>
-            </div>
 
-            <div class="photo-card">
-                <div class="photo-placeholder">🎭</div>
-                <div class="photo-description">
-                    <h3>Adventures</h3>
-                    <p>Exploring the world and creating unforgettable memories one adventure at a time.</p>
+                <div style="margin-bottom: 1rem;">
+                    <label for="email" style="display: block; margin-bottom: 0.5rem; color: #333;">E-mail:</label>
+                    <input type="email" id="email" name="email" style="width: 100%; padding: 0.5rem; border: 1px solid #ddd; border-radius: 4px;" required>
                 </div>
-            </div>
 
-            <div class="photo-card">
-                <div class="photo-placeholder">🎄</div>
-                <div class="photo-description">
-                    <h3>Holiday Magic</h3>
-                    <p>Special moments during the most wonderful time of the year, spent with you.</p>
+                <div style="margin-bottom: 1rem;">
+                    <label for="konu" style="display: block; margin-bottom: 0.5rem; color: #333;">Konu:</label>
+                    <input type="text" id="konu" name="konu" style="width: 100%; padding: 0.5rem; border: 1px solid #ddd; border-radius: 4px;" required>
                 </div>
-            </div>
 
-            <div class="photo-card">
-                <div class="photo-placeholder">🌹</div>
-                <div class="photo-description">
-                    <h3>Romantic Getaway</h3>
-                    <p>Escaping to paradise and falling in love all over again with every moment.</p>
+                <div style="margin-bottom: 1rem;">
+                    <label for="mesaj" style="display: block; margin-bottom: 0.5rem; color: #333;">Mesajınız:</label>
+                    <textarea id="mesaj" name="mesaj" rows="5" style="width: 100%; padding: 0.5rem; border: 1px solid #ddd; border-radius: 4px; font-family: Arial, sans-serif;" required></textarea>
                 </div>
-            </div>
 
-            <div class="photo-card">
-                <div class="photo-placeholder">✨</div>
-                <div class="photo-description">
-                    <h3>Magical Nights</h3>
-                    <p>Under the stars, with you by my side, everything feels possible.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+                <button type="submit" class="btn" style="width: 100%;">Gönder</button>
+            </form>
+        </section>
 
-    <!-- Timeline Section -->
-    <section class="timeline" id="timeline">
-        <h2 class="section-title">Our Journey</h2>
+        <section style="background: linear-gradient(135deg, #fff5f7 0%, #ffe0e6 100%); text-align: center;">
+            <h2 style="border: none; color: #c41e3a;">Aşkınızı Kutlamaya Hazır Mısınız?</h2>
+            <p style="font-size: 1.1rem; margin: 1.5rem 0;">Havinim'e katılın ve aşk yolculuğunuzda eşlik etmesine izin verin.</p>
+            <a href="#" class="btn" style="font-size: 1.1rem; padding: 1rem 2rem; margin: 0 0.5rem;">Ücretsiz Başla</a>
+            <a href="#" class="btn" style="font-size: 1.1rem; padding: 1rem 2rem; margin: 0 0.5rem; background-color: #8b1538;">Planlar Gör</a>
+        </section>
+    </div>
 
-        <div class="timeline-item">
-            <div class="timeline-content">
-                <h3>The Beginning</h3>
-                <p>Our story started with a chance meeting that turned into something extraordinary. From the very first moment, I knew you were special.</p>
-            </div>
-            <div class="timeline-marker">💫</div>
-            <div></div>
-        </div>
-
-        <div class="timeline-item">
-            <div></div>
-            <div class="timeline-marker">🌟</div>
-            <div class="timeline-content">
-                <h3>Growing Closer</h3>
-                <p>Every day with you brought new reasons to smile. We discovered shared dreams and built something beautiful together.</p>
-            </div>
-        </div>
-
-        <div class="timeline-item">
-            <div class="timeline-content">
-                <h3>The Proposal</h3>
-                <p>On a beautiful evening, I asked you the most important question of my life. Your yes meant everything to me.</p>
-            </div>
-            <div class="timeline-marker">💍</div>
-            <div></div>
-        </div>
-
-        <div class="timeline-item">
-            <div></div>
-            <div class="timeline-marker">👰</div>
-            <div class="timeline-content">
-                <h3>Forever Begins</h3>
-                <p>And now, we continue our journey together, building a life filled with love, laughter, and endless possibilities.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Messages Section -->
-    <section class="messages" id="messages">
-        <h2 class="section-title">Love Messages</h2>
-        <div class="message-grid">
-            <div class="message-card">
-                <p>"You are my greatest blessing and my happiest thought. Every moment with you is a treasure I cherish forever."</p>
-                <div class="message-author">~ From My Heart</div>
-            </div>
-
-            <div class="message-card">
-                <p>"In your eyes, I found my home. In your arms, I found my peace. In your heart, I found my love."</p>
-                <div class="message-author">~ Forever Yours</div>
-            </div>
-
-            <div class="message-card">
-                <p>"You make my heart skip a beat and my soul smile. Thank you for being my greatest adventure and my safest place."</p>
-                <div class="message-author">~ With All My Love</div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
     <footer>
-        <div class="footer-hearts">💕 💕 💕</div>
-        <p>Made with Love ❤️</p>
-        <p>&copy; 2025 Our Love Story. All moments are precious.</p>
-        <p>Forever and Always...</p>
+        <p>&copy; 2025 Havinim - Aşkın Dili. Tüm Hakları Saklıdır.</p>
+        <p>Gizlilik Politikası | Kullanım Şartları | İletişim</p>
+        <p style="margin-top: 1rem; font-style: italic;">Aşk, hayatın en güzel hediyesidir. Havinim ile onu kutlayın. <span class="heart">💕</span></p>
     </footer>
 </body>
 </html>
