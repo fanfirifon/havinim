@@ -1,15 +1,15 @@
 const startBtn = document.getElementById('start-btn');
 const welcomeScreen = document.getElementById('welcome-screen');
 const mainContent = document.getElementById('main-content');
-const video = document.getElementById('romantic-video');
 const music = document.getElementById('romantic-music');
 const canvas = document.getElementById('heart-canvas');
 const ctx = canvas.getContext('2d');
 
-// Video yüklenme durumu
-video.addEventListener('canplay', () => {
-    document.getElementById('video-loading').style.display = 'none';
-});
+// Video yüklenme durumu (Iframe için basit gecikme)
+setTimeout(() => {
+    const loader = document.getElementById('video-loading');
+    if (loader) loader.style.display = 'none';
+}, 3000);
 
 // Şarkı başlatma ve ekran geçişi
 startBtn.addEventListener('click', () => {
@@ -19,18 +19,11 @@ startBtn.addEventListener('click', () => {
         mainContent.classList.add('visible');
     }, 100);
 
-    // Video ve Müzik Başlat
-    video.muted = true;
-    video.play().then(() => {
-        console.log("Video başladı");
-    }).catch(() => {
-        // Hata durumunda tekrar dene
-        video.load();
-        video.play();
-    });
-
+    // Müzik Başlat
     music.volume = 0.5;
-    music.play().catch(e => console.log("Müzik hatası:", e));
+    music.play().then(() => {
+        console.log("Müzik başladı");
+    }).catch(e => console.log("Müzik hatası (Muhtemelen kullanıcı etkileşimi bekliyor):", e));
 
     startHeartRain();
 });
