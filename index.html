@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sonsuza Kadar Havin ❤️ 2026</title>
+    <title>Seni Seviyorum Havin ❤️</title>
     <link rel="stylesheet" href="style.css">
     <link
         href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap"
@@ -15,70 +15,61 @@
     <!-- Karşılama Ekranı -->
     <div id="welcome-screen">
         <div class="welcome-content">
-            <h1 style="font-family: 'Great Vibes', cursive; font-size: 5rem;">Canım Havinim ❤️</h1>
-            <p style="font-size: 1.2rem; margin-bottom: 30px;">Hayatımın aşkı, senin için kalbimden gelen bir sürprizim var...</p>
-            <button id="start-btn">Kalbimi Aç ✨</button>
+            <h1>Hoş Geldin Havin ❤️</h1>
+            <p>Senin için küçük bir sürprizim var...</p>
+            <button id="start-btn">Aşkımızı Başlat ✨</button>
         </div>
     </div>
 
     <!-- Ana İçerik -->
     <main id="main-content" class="hidden">
         <header>
-            <h1 class="glow-text">Seni Her Şeyden Çok Seviyorum</h1>
-            <p id="romantic-subtitle" style="text-align:center; font-family: 'Great Vibes', cursive; font-size: 2.5rem; color: #ffd700; margin-top: -20px; text-shadow: 2px 2px 4px rgba(0,0,0,0.5);">Aşkımızın Yılı 2026 ❤️</p>
+            <h1 class="glow-text">Seni Çok Seviyorum Havin</h1>
         </header>
 
         <section class="video-section">
             <div class="video-container">
-                <div id="video-loading" style="color: white; position: absolute; z-index: 0;">Aşkımız yükleniyor...</div>
-                <!-- YouTube Iframe - Kar Küresi -->
-                <iframe id="romantic-video-iframe" 
-                    src="https://www.youtube.com/embed/n_D1Zq0-7r0?autoplay=1&mute=1&loop=1&playlist=n_D1Zq0-7r0&controls=0&showinfo=0&rel=0&iv_load_policy=3&modestbranding=1&disablekb=1" 
-                    frameborder="0" 
-                    allow="autoplay; encrypted-media" 
-                    allowfullscreen
+                <div id="video-loading" style="color: white; position: absolute; z-index: 0;">Yükleniyor...</div>
+                <!-- YouTube Iframe - Daha güvenilir ve her tarayıcıda çalışır -->
+                <iframe id="romantic-video-iframe"
+                    src="https://www.youtube.com/embed/n_D1Zq0-7r0?autoplay=1&mute=1&loop=1&playlist=n_D1Zq0-7r0&controls=0&showinfo=0&rel=0&iv_load_policy=3&modestbranding=1&disablekb=1"
+                    frameborder="0" allow="autoplay; encrypted-media" allowfullscreen
                     style="width: 100%; height: 100%; pointer-events: none; border-radius: 15px;">
                 </iframe>
                 <div class="video-overlay"></div>
             </div>
         </section>
 
-        <!-- SANA AŞIĞIM Bölümü -->
-        <section class="confession-section" style="text-align: center; margin: 60px 0; padding: 20px;">
-            <h2 id="confession-text" style="font-family: 'Great Vibes', cursive; font-size: clamp(4rem, 15vw, 8rem); color: #ff4d4d; text-shadow: 0 0 30px rgba(255, 77, 77, 0.8); animation: heartBeat 1.5s infinite; line-height: 1.2;">SANA AŞIĞIM</h2>
-            <p style="font-family: 'Dancing Script', cursive; font-size: 2rem; color: #ffcccc; margin-top: 10px;">İyi ki benimlesin...</p>
-        </section>
-
         <section class="gallery">
-            <h2>Bizim Hikayemiz ✨</h2>
+            <h2>Anılarımız ✨</h2>
             <div class="photo-grid">
                 <div class="photo-card" style="--i:1">
-                    <img src="https://picsum.photos/id/1028/400/400" alt="Anı 1">
-                    <div class="card-text">Gözlerinin içinde kaybolduğum o an...</div>
+                    <img src="https://picsum.photos/id/1028/400/300" alt="Anı 1">
+                    <div class="card-text">En güzel günümüz...</div>
                 </div>
                 <div class="photo-card" style="--i:2">
-                    <img src="https://picsum.photos/id/1029/400/400" alt="Anı 2">
-                    <div class="card-text">Dünyanın en güzel gülüşü.</div>
+                    <img src="https://picsum.photos/id/1029/400/300" alt="Anı 2">
+                    <div class="card-text">Gülüşün dünyalara bedel.</div>
                 </div>
                 <div class="photo-card" style="--i:3">
-                    <img src="https://picsum.photos/id/1030/400/400" alt="Anı 3">
-                    <div class="card-text">Sonsuzluğa her zaman el ele...</div>
+                    <img src="https://picsum.photos/id/1030/400/300" alt="Anı 3">
+                    <div class="card-text">Hep yanımda kal.</div>
                 </div>
             </div>
         </section>
 
         <section class="surprise-section">
             <div class="question-box">
-                <p>Beni ne kadar seviyorsun desem?</p>
+                <p>Beni ne kadar çok seviyorsun?</p>
                 <div class="buttons">
-                    <button id="love-btn-yes">Sonsuza Dek! ❤️</button>
-                    <button id="love-btn-no">Ihmmm... 😜</button>
+                    <button id="love-btn-yes">Dünyalar Kadar! ❤️</button>
+                    <button id="love-btn-no">Birazcık... 😜</button>
                 </div>
             </div>
         </section>
 
         <footer>
-            <p style="font-size: 1.1rem;">&copy; 2026 - Seni Çok Seven Yol Arkadaşından... ❤️</p>
+            <p>&copy; 2024 - Aşkınla Hazırlandı ❤️</p>
         </footer>
     </main>
 
