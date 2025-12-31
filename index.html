@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Havinim - Aşkın Dili</title>
+    <title>Havinim - Snow Globe</title>
     <style>
         * {
             margin: 0;
@@ -12,440 +12,374 @@
         }
 
         body {
-            font-family: 'Georgia', serif;
-            line-height: 1.6;
-            color: #333;
-            background: linear-gradient(135deg, #fff5f7 0%, #ffe0e6 100%);
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
-        }
-
-        header {
-            background: linear-gradient(135deg, #c41e3a 0%, #8b1538 100%);
-            color: white;
-            padding: 2rem 0;
-            text-align: center;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
-
-        header h1 {
-            font-size: 3rem;
-            margin-bottom: 0.5rem;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-        }
-
-        header p {
-            font-size: 1.2rem;
-            font-style: italic;
-            opacity: 0.95;
-        }
-
-        nav {
-            background-color: #a31830;
-            padding: 1rem 0;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-
-        nav ul {
-            list-style: none;
             display: flex;
             justify-content: center;
-            flex-wrap: wrap;
-            gap: 2rem;
+            align-items: center;
         }
 
-        nav a {
-            color: white;
-            text-decoration: none;
-            font-size: 1.1rem;
-            transition: opacity 0.3s ease;
-            padding: 0.5rem 1rem;
-        }
-
-        nav a:hover {
-            opacity: 0.8;
-            text-decoration: underline;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 2rem;
-        }
-
-        section {
-            background: white;
-            margin: 2rem 0;
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-        }
-
-        section h2 {
-            color: #c41e3a;
-            font-size: 2.2rem;
-            margin-bottom: 1.5rem;
-            border-bottom: 3px solid #ff69b4;
-            padding-bottom: 1rem;
-        }
-
-        section h3 {
-            color: #8b1538;
-            font-size: 1.5rem;
-            margin-top: 1.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .hero {
-            background: linear-gradient(135deg, rgba(196,30,58,0.8) 0%, rgba(139,21,56,0.8) 100%), 
-                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><defs><filter id="heart"><feGaussianBlur in="SourceGraphic" stdDeviation="3"/></filter></defs><circle cx="200" cy="150" r="30" fill="%23ff69b4" opacity="0.3" filter="url(%23heart)"/><circle cx="1000" cy="400" r="40" fill="%23ff69b4" opacity="0.2" filter="url(%23heart)"/><circle cx="600" cy="100" r="25" fill="%23ff69b4" opacity="0.25" filter="url(%23heart)"/></svg>');
-            color: white;
-            padding: 4rem 2rem;
-            border-radius: 10px;
-            text-align: center;
-            margin-bottom: 2rem;
-        }
-
-        .hero h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            color: white;
-            border: none;
-        }
-
-        .hero p {
-            font-size: 1.3rem;
-            font-style: italic;
-            margin-bottom: 2rem;
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 0.8rem 1.5rem;
-            background-color: #ff69b4;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            transition: all 0.3s ease;
-            border: none;
-            cursor: pointer;
-            font-size: 1rem;
-        }
-
-        .btn:hover {
-            background-color: #ff1493;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-        }
-
-        .quote-box {
-            background: #fff5f7;
-            padding: 1.5rem;
-            border-left: 4px solid #ff69b4;
-            margin: 1.5rem 0;
-            font-style: italic;
-            font-size: 1.1rem;
-            color: #666;
-        }
-
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin: 2rem 0;
-        }
-
-        .card {
-            background: #fff5f7;
-            padding: 1.5rem;
-            border-radius: 8px;
-            border: 2px solid #ffb6d9;
-            transition: transform 0.3s ease;
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 6px 12px rgba(255, 105, 180, 0.3);
-        }
-
-        .card h4 {
-            color: #c41e3a;
-            margin-bottom: 0.5rem;
-        }
-
-        footer {
-            background: linear-gradient(135deg, #c41e3a 0%, #8b1538 100%);
-            color: white;
-            text-align: center;
-            padding: 2rem 0;
-            margin-top: 3rem;
-        }
-
-        footer p {
-            margin: 0.5rem 0;
-        }
-
-        .testimonial {
-            background: #fff5f7;
-            padding: 1.5rem;
-            margin: 1rem 0;
-            border-radius: 8px;
-            border-left: 4px solid #ff69b4;
-        }
-
-        .testimonial-author {
-            color: #c41e3a;
-            font-weight: bold;
-            margin-top: 0.5rem;
-        }
-
-        .heart {
-            color: #ff69b4;
-            display: inline-block;
-            margin: 0 0.2rem;
-        }
-
-        .feature-list {
-            list-style: none;
-            margin: 1rem 0;
-        }
-
-        .feature-list li {
-            padding: 0.8rem 0;
-            padding-left: 2rem;
-            position: relative;
-            color: #555;
-        }
-
-        .feature-list li:before {
-            content: "♥";
-            position: absolute;
+        /* Snow Globe Modal Styles */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
             left: 0;
-            color: #ff69b4;
-            font-size: 1.3rem;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+            animation: fadeIn 0.5s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        .modal-content {
+            position: relative;
+            background: radial-gradient(ellipse at center, #ffffff 0%, #f0f0f0 100%);
+            border-radius: 50%;
+            width: 600px;
+            height: 600px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3),
+                        inset -20px -20px 40px rgba(0, 0, 0, 0.1),
+                        inset 20px 20px 40px rgba(255, 255, 255, 0.5);
+            overflow: hidden;
+            animation: globeScale 0.6s ease-out;
+        }
+
+        @keyframes globeScale {
+            from {
+                transform: scale(0.8);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .video-container {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .video-container video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+        .snow-effect {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            border-radius: 50%;
+            overflow: hidden;
+        }
+
+        .snowflake {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: white;
+            border-radius: 50%;
+            opacity: 0.8;
+            box-shadow: 0 0 5px rgba(255, 255, 255, 0.8);
+        }
+
+        .globe-border {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border: 8px solid;
+            border-color: #daa520 #b8860b #daa520 #b8860b;
+            border-radius: 50%;
+            box-sizing: border-box;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.2),
+                        0 0 20px rgba(218, 165, 32, 0.4);
+        }
+
+        .close-button {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background-color: rgba(255, 255, 255, 0.9);
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            font-size: 24px;
+            cursor: pointer;
+            z-index: 1001;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: all 0.3s ease;
+            color: #333;
+        }
+
+        .close-button:hover {
+            background-color: white;
+            transform: scale(1.1);
+        }
+
+        .base {
+            position: absolute;
+            bottom: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 200px;
+            height: 60px;
+            background: linear-gradient(to right, #8B4513, #A0522D, #8B4513);
+            border-radius: 0 0 20px 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            z-index: 10;
+        }
+
+        .content {
+            position: relative;
+            z-index: 100;
+            text-align: center;
+            padding: 40px;
+        }
+
+        h1 {
+            color: #333;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        p {
+            color: #666;
+            font-size: 1.1em;
+            line-height: 1.6;
+        }
+
+        /* Background Music Control */
+        .music-control {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 999;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .music-control:hover {
+            background: white;
+            transform: scale(1.1);
+        }
+
+        .music-control.playing::before {
+            content: '🔊';
+            font-size: 24px;
+        }
+
+        .music-control.muted::before {
+            content: '🔇';
+            font-size: 24px;
         }
 
         @media (max-width: 768px) {
-            header h1 {
-                font-size: 2rem;
+            .modal-content {
+                width: 400px;
+                height: 400px;
             }
 
-            nav ul {
-                gap: 1rem;
+            h1 {
+                font-size: 1.8em;
             }
 
-            section {
-                padding: 1.5rem;
-            }
-
-            .container {
-                padding: 1rem;
+            p {
+                font-size: 0.9em;
             }
         }
     </style>
 </head>
 <body>
-    <header>
-        <h1>💕 Havinim 💕</h1>
-        <p>Aşkın Dili - Gönüllerinizi Birleştiren Platform</p>
-    </header>
-
-    <nav>
-        <ul>
-            <li><a href="#anasayfa">Anasayfa</a></li>
-            <li><a href="#hizmetler">Hizmetler</a></li>
-            <li><a href="#hikayeler">Hikayeler</a></li>
-            <li><a href="#testimonial">Yorumlar</a></li>
-            <li><a href="#iletisim">İletişim</a></li>
-        </ul>
-    </nav>
-
-    <div class="container">
-        <section class="hero" id="anasayfa">
-            <h2>Aşkın Gücünü Keşfet</h2>
-            <p>İki gönlü birleştiren, sonsuz mutluluğun kapısını açan eşsiz bir deneyim</p>
-            <a href="#hizmetler" class="btn">Hemen Başla</a>
-        </section>
-
-        <section id="hizmetler">
-            <h2>Hizmetlerimiz</h2>
-            <p>Havinim, aşkınızı kutlamanız ve güçlendirmeniz için özel tasarlanmış hizmetler sunmaktadır.</p>
-            
-            <div class="grid">
-                <div class="card">
-                    <h4>💌 Romantik Mesajlar</h4>
-                    <p>Özel anlarınızı kalp dokunuşu ile kutlayın. Her mesaj, aşkınızın derinliğini yansıtır. Türkçe ve İngilizce aşk sözleriyle dolu, hazır şablonlardan seçin veya kendi mesajınızı yazın.</p>
-                </div>
-
-                <div class="card">
-                    <h4>🌹 Anı Koleksiyonu</h4>
-                    <p>Birlikte yaşadığınız tüm güzel anıları saklayın. Fotoğraflar, videolar ve yazılarla dolu bir dijital albüm oluşturun. Her an, adeta bir hikaye ve bu hikayeler ebedi olacak.</p>
-                </div>
-
-                <div class="card">
-                    <h4>💝 Hediye Fikirleri</h4>
-                    <p>Sevdiğiniz kişiye mükemmel hediye bulmakta zorlanıyor musunuz? Biz size rehberlik edeceğiz. Romantik, özgün ve etkili hediye seçenekleri ile ilgili önerilerimiz var.</p>
-                </div>
-
-                <div class="card">
-                    <h4>📅 Gün Takvimi</h4>
-                    <p>Önemli günleri asla unutmayın. Yıldönümü, ilk buluşma, evlenme günü... Tüm özel günleri takip edin ve önceden hazırlanın. Otomatik hatırlatmalar sayesinde hiç bir şey kaçmayacak.</p>
-                </div>
-
-                <div class="card">
-                    <h4>🎵 Aşk Çalışması</h4>
-                    <p>Müzik, aşkın evrensel dilidir. Size özel hazırlanmış romantik şarkı listelerimiz, anlarınıza renk katacak. Her şarkı, bir duygu, her nota bir kalp atışıdır.</p>
-                </div>
-
-                <div class="card">
-                    <h4>💬 Sohbet Rehberi</h4>
-                    <p>Konuşmalar ne zaman bitiyor mu? Derin ve anlamlı sohbetler için özel konular, sorular ve aktiviteler sunuyoruz. Birbirinizi daha iyi tanıyın ve bağlantınızı güçlendirin.</p>
-                </div>
+    <!-- Snow Globe Modal -->
+    <div class="modal-overlay active" id="snowGlobeModal">
+        <button class="close-button" onclick="closeSnowGlobe()">✕</button>
+        
+        <div class="modal-content">
+            <div class="video-container">
+                <video id="globeVideo" autoplay loop muted playsinline>
+                    <source src="assets/snow-globe.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <div class="snow-effect" id="snowEffect"></div>
             </div>
-
-            <div class="quote-box">
-                "Aşk, dünyanın en güzel duygusudur. İt, hayatı renklendirir, sorulara cevap bulduğu, umut ilişkisini sağlar ve kalpleri birleştirir."
-            </div>
-        </section>
-
-        <section id="hikayeler">
-            <h2>Aşk Hikayelerimiz</h2>
-            <p>Platformumuzun kullanıcıları tarafından yaşanan ve bizimle paylaşılan gerçek aşk hikayeleri:</p>
-
-            <h3>Ali ve Ayşe'nin Hikayesi</h3>
-            <p>
-                Dört sene öncesinde sosyal medyada tanışan Ali ve Ayşe, Havinim platformunu kullanarak aşklarını daha derinleştirdiler. 
-                Havinim'deki romantik mesaj önerileri, Ayşe'nin favorisi olan aşk şiirleri koleksiyonu ve anı takvimi, onların 
-                ilişkisini sağlamlaştırmaya yardımcı oldu. Bugün mutlu bir şekilde evli yaşıyorlar ve çocukları var.
-            </p>
-
-            <div class="testimonial">
-                <strong>"Havinim olmasa belki bu kadar iyi anlaşamazdık"</strong> - Ali
-            </div>
-
-            <h3>Zeynep ve Mert'in Hikayesi</h3>
-            <p>
-                Üniversitede sınıf arkadaşı olarak başlayan arkadaşlıkları, birkaç yıl sonra aşka dönüştü. Havinim'in 'Gün Takvimi' 
-                özelliği sayesinde hiç bir önemli günü unutmadılar. Bugün evlenmiş ve ilişkilerini hep canlı tutmaya çalışıyorlar.
-            </p>
-
-            <div class="testimonial">
-                <strong>"Havinim'i kullandıktan sonra, aşkımız daha özel hale geldi"</strong> - Zeynep
-            </div>
-
-            <h3>Fatih ve Gülşah'ın Hikayesi</h3>
-            <p>
-                Evli olarak 20 yıl geçirdikten sonra, aşklarını yeniden canlandırmak istediler. Havinim'in romantik mesaj 
-                önerileri ve sohbet rehberi, onların yeni bir başlangıç yapmasına yardımcı oldu. Hala birbirlerine sevgi gösteriyorlar 
-                ve mutlu bir şekilde yaşıyor.
-            </p>
-
-            <div class="testimonial">
-                <strong>"20 yıl sonra yine genç sevgililer gibi hissettik"</strong> - Gülşah
-            </div>
-        </section>
-
-        <section id="testimonial">
-            <h2>Kullanıcı Yorumları</h2>
-            <p>Havinim'i kullanan gerçek insanlardan gelen gerçek yorumlar:</p>
-
-            <div class="testimonial">
-                <p>"Çok güzel ve kullanıcı dostu bir platform. Sevdiğim kişiye özel mesajlar gönderirken çok mutlu oldum."</p>
-                <div class="testimonial-author">- Seda K., İstanbul</div>
-            </div>
-
-            <div class="testimonial">
-                <p>"Aşk hikayelerimiz için mükemmel bir dijital albüm oluşturduk. Anılarımız sonsuza kadar güvenli kalacak."</p>
-                <div class="testimonial-author">- Emre D., Ankara</div>
-            </div>
-
-            <div class="testimonial">
-                <p>"Romantik mesaj önerileri sayesinde sevdiğim kişiye ne yazmam gerektiğini anladım. Şimdi daha iyi anlaşıyoruz."</p>
-                <div class="testimonial-author">- Neşe T., İzmir</div>
-            </div>
-
-            <div class="testimonial">
-                <p>"Önemli günleri asla unutmuyorum artık. Havinim'in otomatik hatırlatmaları çok yardımcı oluyor."</p>
-                <div class="testimonial-author">- Can B., Bursa</div>
-            </div>
-
-            <div class="testimonial">
-                <p>"Sohbet rehberi sayesinde sevdiğim kişi ile çok daha derin konuşmalar yapabiliyorum. Bağlantımız güçlendii."</p>
-                <div class="testimonial-author">- Duygu Y., Gaziantep</div>
-            </div>
-
-            <div class="testimonial">
-                <p>"Müzik listelerimiz birlikte harika anlar yaşamamızda büyük rol oynuyor. Her şarkı bir hatırası..."</p>
-                <div class="testimonial-author">- Uğur V., Antalya</div>
-            </div>
-        </section>
-
-        <section>
-            <h2>Neden Havinim'i Seçmelisiniz?</h2>
-            <ul class="feature-list">
-                <li><strong>Güvenlik:</strong> Tüm verileriniz şifrelenmiş ve güvenli sunucularda saklanır</li>
-                <li><strong>Gizlilik:</strong> Sadece siz ve sevdiğiniz kişi paylaşılan içeriği görebilir</li>
-                <li><strong>Kullanıcı Dostu:</strong> Basit, sezgisel ve öğrenmesi kolay arayüz</li>
-                <li><strong>Mobil Uyumlu:</strong> Telefonunuzdan, tabletinizden veya bilgisayarınızdan erişin</li>
-                <li><strong>Sürekli Güncelleme:</strong> Düzenli olarak yeni özellikler ve iyileştirmeler ekliyoruz</li>
-                <li><strong>Müşteri Desteği:</strong> 24/7 çevrimiçi destek ekibi size yardımcı olmaya hazır</li>
-                <li><strong>Uygun Fiyat:</strong> Hafif ve esnek fiyatlandırma seçenekleri</li>
-                <li><strong>Topluluk:</strong> Binlerce happy çiftleri aşk hikayesine katılın</li>
-            </ul>
-        </section>
-
-        <section id="iletisim">
-            <h2>İletişim</h2>
-            <p>Sorularınız mı var? Bize ulaşın ve sizi en kısa sürede cevaplandıracağız.</p>
-
-            <h3>İletişim Bilgileri</h3>
-            <ul class="feature-list">
-                <li><strong>E-mail:</strong> destek@havinim.com</li>
-                <li><strong>Telefon:</strong> +90 (212) 555-0123</li>
-                <li><strong>Adres:</strong> Beşiktaş, İstanbul, Türkiye</li>
-                <li><strong>Sosyal Medya:</strong> @havinim (Instagram, Twitter, Facebook)</li>
-            </ul>
-
-            <h3>İletişim Formu</h3>
-            <form style="max-width: 600px; margin: 1.5rem 0;">
-                <div style="margin-bottom: 1rem;">
-                    <label for="ad" style="display: block; margin-bottom: 0.5rem; color: #333;">Adınız:</label>
-                    <input type="text" id="ad" name="ad" style="width: 100%; padding: 0.5rem; border: 1px solid #ddd; border-radius: 4px;" required>
-                </div>
-
-                <div style="margin-bottom: 1rem;">
-                    <label for="email" style="display: block; margin-bottom: 0.5rem; color: #333;">E-mail:</label>
-                    <input type="email" id="email" name="email" style="width: 100%; padding: 0.5rem; border: 1px solid #ddd; border-radius: 4px;" required>
-                </div>
-
-                <div style="margin-bottom: 1rem;">
-                    <label for="konu" style="display: block; margin-bottom: 0.5rem; color: #333;">Konu:</label>
-                    <input type="text" id="konu" name="konu" style="width: 100%; padding: 0.5rem; border: 1px solid #ddd; border-radius: 4px;" required>
-                </div>
-
-                <div style="margin-bottom: 1rem;">
-                    <label for="mesaj" style="display: block; margin-bottom: 0.5rem; color: #333;">Mesajınız:</label>
-                    <textarea id="mesaj" name="mesaj" rows="5" style="width: 100%; padding: 0.5rem; border: 1px solid #ddd; border-radius: 4px; font-family: Arial, sans-serif;" required></textarea>
-                </div>
-
-                <button type="submit" class="btn" style="width: 100%;">Gönder</button>
-            </form>
-        </section>
-
-        <section style="background: linear-gradient(135deg, #fff5f7 0%, #ffe0e6 100%); text-align: center;">
-            <h2 style="border: none; color: #c41e3a;">Aşkınızı Kutlamaya Hazır Mısınız?</h2>
-            <p style="font-size: 1.1rem; margin: 1.5rem 0;">Havinim'e katılın ve aşk yolculuğunuzda eşlik etmesine izin verin.</p>
-            <a href="#" class="btn" style="font-size: 1.1rem; padding: 1rem 2rem; margin: 0 0.5rem;">Ücretsiz Başla</a>
-            <a href="#" class="btn" style="font-size: 1.1rem; padding: 1rem 2rem; margin: 0 0.5rem; background-color: #8b1538;">Planlar Gör</a>
-        </section>
+            <div class="globe-border"></div>
+            <div class="base"></div>
+        </div>
     </div>
 
-    <footer>
-        <p>&copy; 2025 Havinim - Aşkın Dili. Tüm Hakları Saklıdır.</p>
-        <p>Gizlilik Politikası | Kullanım Şartları | İletişim</p>
-        <p style="margin-top: 1rem; font-style: italic;">Aşk, hayatın en güzel hediyesidir. Havinim ile onu kutlayın. <span class="heart">💕</span></p>
-    </footer>
+    <!-- Background Music Control -->
+    <audio id="backgroundMusic" loop>
+        <source src="assets/background-music.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+    <div class="music-control playing" id="musicControl" onclick="toggleMusic()"></div>
+
+    <script>
+        // Initialize snow globe on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            const modal = document.getElementById('snowGlobeModal');
+            const backgroundMusic = document.getElementById('backgroundMusic');
+            const musicControl = document.getElementById('musicControl');
+
+            // Show modal with animation
+            setTimeout(() => {
+                modal.classList.add('active');
+            }, 300);
+
+            // Start background music
+            backgroundMusic.play().catch(error => {
+                console.log('Auto-play prevented:', error);
+                musicControl.classList.remove('playing');
+                musicControl.classList.add('muted');
+            });
+
+            // Create snowflakes
+            createSnowflakes();
+        });
+
+        // Toggle background music
+        function toggleMusic() {
+            const audio = document.getElementById('backgroundMusic');
+            const control = document.getElementById('musicControl');
+
+            if (audio.paused) {
+                audio.play().catch(error => console.log('Play error:', error));
+                control.classList.remove('muted');
+                control.classList.add('playing');
+            } else {
+                audio.pause();
+                control.classList.remove('playing');
+                control.classList.add('muted');
+            }
+        }
+
+        // Create animated snowflakes
+        function createSnowflakes() {
+            const snowEffect = document.getElementById('snowEffect');
+            const snowflakeCount = 30;
+
+            for (let i = 0; i < snowflakeCount; i++) {
+                const snowflake = document.createElement('div');
+                snowflake.classList.add('snowflake');
+                
+                const startX = Math.random() * 100;
+                const duration = Math.random() * 5 + 5;
+                const delay = Math.random() * 2;
+                const size = Math.random() * 8 + 4;
+
+                snowflake.style.left = startX + '%';
+                snowflake.style.width = size + 'px';
+                snowflake.style.height = size + 'px';
+                snowflake.style.animation = `
+                    fall ${duration}s linear ${delay}s infinite,
+                    sway 3s ease-in-out ${delay}s infinite
+                `;
+
+                snowEffect.appendChild(snowflake);
+            }
+
+            // Add CSS animations for snowflakes
+            const style = document.createElement('style');
+            style.textContent = `
+                @keyframes fall {
+                    from {
+                        top: -10px;
+                        opacity: 1;
+                    }
+                    to {
+                        top: 600px;
+                        opacity: 0;
+                    }
+                }
+
+                @keyframes sway {
+                    0%, 100% {
+                        transform: translateX(0);
+                    }
+                    50% {
+                        transform: translateX(30px);
+                    }
+                }
+
+                @media (max-width: 768px) {
+                    @keyframes fall {
+                        from {
+                            top: -10px;
+                            opacity: 1;
+                        }
+                        to {
+                            top: 400px;
+                            opacity: 0;
+                        }
+                    }
+                }
+            `;
+            document.head.appendChild(style);
+        }
+
+        // Close snow globe modal
+        function closeSnowGlobe() {
+            const modal = document.getElementById('snowGlobeModal');
+            modal.style.animation = 'fadeOut 0.5s ease-out forwards';
+            setTimeout(() => {
+                modal.classList.remove('active');
+                modal.style.animation = '';
+            }, 500);
+        }
+
+        // Add fade out animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes fadeOut {
+                from {
+                    opacity: 1;
+                }
+                to {
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
 </body>
 </html>
