@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Love Story</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* Floating Hearts Animation */
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px) translateX(0px);
+                opacity: 1;
+            }
+            50% {
+                transform: translateY(-50px) translateX(20px);
+                opacity: 0.8;
+            }
+        }
+
+        @keyframes fadeOut {
+            0% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0;
+            }
+        }
+
+        .heart {
+            position: fixed;
+            pointer-events: none;
+            font-size: 2rem;
+            animation: float 3s ease-in-out infinite, fadeOut 4s ease-out forwards;
+            z-index: 1;
+        }
+
+        /* Header */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 20px 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        nav a {
+            margin-left: 30px;
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #667eea;
+        }
+
+        /* Hero Section */
+        .hero {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 80px 20px;
+            text-align: center;
+            color: white;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            animation: slideDown 0.8s ease-out;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+            animation: slideUp 0.8s ease-out 0.2s backwards;
+        }
+
+        @keyframes slideDown {
+            from {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideUp {
+            from {
+                transform: translateY(50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 15px 40px;
+            background: white;
+            color: #667eea;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Gallery Section */
+        .gallery {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 80px 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 60px;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .photo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 80px;
+        }
+
+        .photo-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            animation: fadeInUp 0.6s ease-out backwards;
+        }
+
+        .photo-card:nth-child(1) {
+            animation-delay: 0.1s;
+        }
+
+        .photo-card:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .photo-card:nth-child(3) {
+            animation-delay: 0.3s;
+        }
+
+        .photo-card:nth-child(4) {
+            animation-delay: 0.4s;
+        }
+
+        .photo-card:nth-child(5) {
+            animation-delay: 0.5s;
+        }
+
+        .photo-card:nth-child(6) {
+            animation-delay: 0.6s;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                transform: translateY(30px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .photo-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 30px rgba(102, 126, 234, 0.3);
+        }
+
+        .photo-placeholder {
+            width: 100%;
+            height: 250px;
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .photo-placeholder::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(
+                45deg,
+                transparent 30%,
+                rgba(255, 255, 255, 0.1) 50%,
+                transparent 70%
+            );
+            animation: shimmer 3s infinite;
+        }
+
+        @keyframes shimmer {
+            0% {
+                transform: translate(-100%, -100%) rotate(45deg);
+            }
+            100% {
+                transform: translate(100%, 100%) rotate(45deg);
+            }
+        }
+
+        .photo-description {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .photo-description h3 {
+            font-size: 1.3rem;
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+
+        .photo-description p {
+            color: #666;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* Timeline Section */
+        .timeline {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 80px 20px;
+        }
+
+        .timeline-item {
+            display: grid;
+            grid-template-columns: 1fr 100px 1fr;
+            gap: 30px;
+            margin-bottom: 50px;
+            align-items: center;
+            animation: fadeInUp 0.6s ease-out backwards;
+        }
+
+        .timeline-item:nth-child(odd) {
+            grid-template-columns: 1fr 100px 1fr;
+        }
+
+        .timeline-item:nth-child(even) {
+            grid-template-columns: 1fr 100px 1fr;
+            direction: rtl;
+        }
+
+        .timeline-item:nth-child(1) {
+            animation-delay: 0.1s;
+        }
+
+        .timeline-item:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .timeline-item:nth-child(3) {
+            animation-delay: 0.3s;
+        }
+
+        .timeline-item:nth-child(4) {
+            animation-delay: 0.4s;
+        }
+
+        .timeline-content {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            direction: ltr;
+        }
+
+        .timeline-content h3 {
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+
+        .timeline-content p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .timeline-marker {
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+        }
+
+        /* Messages Section */
+        .messages {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 80px 20px;
+        }
+
+        .message-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .message-card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            border-left: 5px solid #f5576c;
+            transition: transform 0.3s ease;
+            animation: fadeInUp 0.6s ease-out backwards;
+        }
+
+        .message-card:nth-child(1) {
+            animation-delay: 0.1s;
+        }
+
+        .message-card:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .message-card:nth-child(3) {
+            animation-delay: 0.3s;
+        }
+
+        .message-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .message-card p {
+            color: #666;
+            font-size: 1rem;
+            line-height: 1.8;
+            font-style: italic;
+            margin-bottom: 15px;
+        }
+
+        .message-author {
+            color: #667eea;
+            font-weight: bold;
+            text-align: right;
+        }
+
+        /* Footer */
+        footer {
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 80px;
+        }
+
+        footer p {
+            margin-bottom: 10px;
+        }
+
+        .footer-hearts {
+            font-size: 1.5rem;
+            margin: 20px 0;
+            letter-spacing: 10px;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+                margin-bottom: 40px;
+            }
+
+            .photo-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .timeline-item {
+                grid-template-columns: 1fr !important;
+                direction: ltr !important;
+                margin-bottom: 40px;
+            }
+
+            .timeline-item:nth-child(even) {
+                direction: ltr;
+            }
+
+            .timeline-marker {
+                width: 80px;
+                height: 80px;
+                font-size: 0.9rem;
+            }
+
+            .timeline-content {
+                direction: ltr;
+            }
+
+            nav {
+                display: none;
+            }
+
+            .header-content {
+                flex-direction: column;
+            }
+
+            .logo {
+                margin-bottom: 15px;
+            }
+
+            .message-grid {
+                grid-template-columns: 1fr;
+            }
+
+            header {
+                padding: 15px 0;
+            }
+
+            .hero {
+                padding: 40px 20px;
+            }
+
+            .gallery {
+                padding: 40px 20px;
+            }
+
+            .timeline {
+                padding: 40px 20px;
+            }
+
+            .messages {
+                padding: 40px 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 1.5rem;
+            }
+
+            .cta-button {
+                padding: 12px 30px;
+                font-size: 0.9rem;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+            }
+
+            .photo-placeholder {
+                height: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Floating Hearts -->
+    <script>
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.className = 'heart';
+            heart.innerHTML = '❤️';
+            heart.style.left = Math.random() * window.innerWidth + 'px';
+            heart.style.top = Math.random() * window.innerHeight + 'px';
+            document.body.appendChild(heart);
+
+            setTimeout(() => {
+                heart.remove();
+            }, 4000);
+        }
+
+        setInterval(createHeart, 800);
+    </script>
+
+    <!-- Header -->
+    <header>
+        <div class="header-content">
+            <div class="logo">💕 Our Story</div>
+            <nav>
+                <a href="#gallery">Gallery</a>
+                <a href="#timeline">Timeline</a>
+                <a href="#messages">Messages</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Forever Starts Today</h1>
+        <p>A celebration of love, memories, and beautiful moments we share</p>
+        <a href="#gallery" class="cta-button">Explore Our Story</a>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery" id="gallery">
+        <h2 class="section-title">Our Memories</h2>
+        <div class="photo-grid">
+            <div class="photo-card">
+                <div class="photo-placeholder">📸</div>
+                <div class="photo-description">
+                    <h3>First Meeting</h3>
+                    <p>The day everything changed. A moment that brought us together and changed our lives forever.</p>
+                </div>
+            </div>
+
+            <div class="photo-card">
+                <div class="photo-placeholder">🌅</div>
+                <div class="photo-description">
+                    <h3>Sunrise Together</h3>
+                    <p>Watching the sunrise with you is my favorite way to start any day.</p>
+                </div>
+            </div>
+
+            <div class="photo-card">
+                <div class="photo-placeholder">🎭</div>
+                <div class="photo-description">
+                    <h3>Adventures</h3>
+                    <p>Exploring the world and creating unforgettable memories one adventure at a time.</p>
+                </div>
+            </div>
+
+            <div class="photo-card">
+                <div class="photo-placeholder">🎄</div>
+                <div class="photo-description">
+                    <h3>Holiday Magic</h3>
+                    <p>Special moments during the most wonderful time of the year, spent with you.</p>
+                </div>
+            </div>
+
+            <div class="photo-card">
+                <div class="photo-placeholder">🌹</div>
+                <div class="photo-description">
+                    <h3>Romantic Getaway</h3>
+                    <p>Escaping to paradise and falling in love all over again with every moment.</p>
+                </div>
+            </div>
+
+            <div class="photo-card">
+                <div class="photo-placeholder">✨</div>
+                <div class="photo-description">
+                    <h3>Magical Nights</h3>
+                    <p>Under the stars, with you by my side, everything feels possible.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline Section -->
+    <section class="timeline" id="timeline">
+        <h2 class="section-title">Our Journey</h2>
+
+        <div class="timeline-item">
+            <div class="timeline-content">
+                <h3>The Beginning</h3>
+                <p>Our story started with a chance meeting that turned into something extraordinary. From the very first moment, I knew you were special.</p>
+            </div>
+            <div class="timeline-marker">💫</div>
+            <div></div>
+        </div>
+
+        <div class="timeline-item">
+            <div></div>
+            <div class="timeline-marker">🌟</div>
+            <div class="timeline-content">
+                <h3>Growing Closer</h3>
+                <p>Every day with you brought new reasons to smile. We discovered shared dreams and built something beautiful together.</p>
+            </div>
+        </div>
+
+        <div class="timeline-item">
+            <div class="timeline-content">
+                <h3>The Proposal</h3>
+                <p>On a beautiful evening, I asked you the most important question of my life. Your yes meant everything to me.</p>
+            </div>
+            <div class="timeline-marker">💍</div>
+            <div></div>
+        </div>
+
+        <div class="timeline-item">
+            <div></div>
+            <div class="timeline-marker">👰</div>
+            <div class="timeline-content">
+                <h3>Forever Begins</h3>
+                <p>And now, we continue our journey together, building a life filled with love, laughter, and endless possibilities.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Messages Section -->
+    <section class="messages" id="messages">
+        <h2 class="section-title">Love Messages</h2>
+        <div class="message-grid">
+            <div class="message-card">
+                <p>"You are my greatest blessing and my happiest thought. Every moment with you is a treasure I cherish forever."</p>
+                <div class="message-author">~ From My Heart</div>
+            </div>
+
+            <div class="message-card">
+                <p>"In your eyes, I found my home. In your arms, I found my peace. In your heart, I found my love."</p>
+                <div class="message-author">~ Forever Yours</div>
+            </div>
+
+            <div class="message-card">
+                <p>"You make my heart skip a beat and my soul smile. Thank you for being my greatest adventure and my safest place."</p>
+                <div class="message-author">~ With All My Love</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-hearts">💕 💕 💕</div>
+        <p>Made with Love ❤️</p>
+        <p>&copy; 2025 Our Love Story. All moments are precious.</p>
+        <p>Forever and Always...</p>
+    </footer>
+</body>
+</html>
