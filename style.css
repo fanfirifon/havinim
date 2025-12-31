@@ -71,7 +71,7 @@ h2,
 /* Ana İçerik */
 #main-content {
     opacity: 0;
-    transition: 2s;
+    transition: 0.8s ease-in-out;
     padding: 20px;
 }
 
@@ -102,16 +102,24 @@ header {
     position: relative;
     width: 600px;
     max-width: 90%;
+    min-height: 340px;
     border-radius: 20px;
     overflow: hidden;
     box-shadow: 0 0 30px rgba(255, 77, 77, 0.5);
     border: 5px solid var(--glass);
-    background: #000;
+    background: #111;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 video {
     width: 100%;
+    height: 100%;
+    object-fit: cover;
     display: block;
+    position: relative;
+    z-index: 1;
 }
 
 .video-overlay {
@@ -120,8 +128,9 @@ video {
     left: 0;
     width: 100%;
     height: 100%;
-    background: radial-gradient(circle, transparent 50%, rgba(0, 0, 0, 0.5));
+    background: transparent;
     pointer-events: none;
+    z-index: 2;
 }
 
 /* Galeri */
