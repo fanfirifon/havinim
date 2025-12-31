@@ -6,6 +6,11 @@ const music = document.getElementById('romantic-music');
 const canvas = document.getElementById('heart-canvas');
 const ctx = canvas.getContext('2d');
 
+// Video yüklenme durumu
+video.addEventListener('canplay', () => {
+    document.getElementById('video-loading').style.display = 'none';
+});
+
 // Şarkı başlatma ve ekran geçişi
 startBtn.addEventListener('click', () => {
     welcomeScreen.classList.add('hidden');
@@ -15,16 +20,17 @@ startBtn.addEventListener('click', () => {
     }, 100);
 
     // Video ve Müzik Başlat
-    video.muted = true; // Autoplay garantisi için
-    video.load();
+    video.muted = true;
     video.play().then(() => {
-        console.log("Video başarıyla başladı.");
-    }).catch(err => {
-        console.error("Video hatası:", err);
+        console.log("Video başladı");
+    }).catch(() => {
+        // Hata durumunda tekrar dene
+        video.load();
+        video.play();
     });
 
     music.volume = 0.5;
-    music.play().catch(e => console.log("Müzik başlatılamadı:", e));
+    music.play().catch(e => console.log("Müzik hatası:", e));
 
     startHeartRain();
 });
